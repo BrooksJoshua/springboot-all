@@ -11,6 +11,9 @@
     <modules>
         <module>springboot-all-mail</module>
         <module>springboot-all-druid</module>
+        <module>springboot-all-cors9090</module>
+        <module>springboot-all-cors9091</module>
+        <module>springboot-all-cors9092</module>
     </modules>
 
     <groupId>com.boy</groupId>

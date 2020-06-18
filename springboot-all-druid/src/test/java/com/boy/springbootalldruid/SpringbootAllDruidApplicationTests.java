@@ -1,11 +1,22 @@
 package com.boy.springbootalldruid;
 
-import org.junit.jupiter.api.Test;
+import com.boy.springbootalldruid.service.UserServiceImpl;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class SpringbootAllDruidApplicationTests {
 
   @Test
-  void contextLoads() {}
+  void contextLoads() {
+
+
+    UserServiceImpl userService;
+
+
+
+
+
+  }
 }
