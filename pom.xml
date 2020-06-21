@@ -11,6 +11,11 @@
     <modules>
         <module>springboot-all-mail</module>
         <module>springboot-all-druid</module>
+        <module>springbootrest</module>
+        <module>springboot-all-devtools</module>
+        <module>springboot-all-cache</module>
+        <module>springboot-all-security</module>
+        <module>springboot-all-securitydb</module>
     </modules>
 
     <groupId>com.boy</groupId>
