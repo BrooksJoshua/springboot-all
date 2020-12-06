@@ -1,0 +1,17 @@
+########################################################################
+# ~~~~~~~~~~~~~           DataSource Configuration        ~~~~~~~~~~~~~
+########################################################################
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3307/activiti7?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+  activiti:
+    db-history-used: true
+    database-schema-update: true
+
+
+
+
