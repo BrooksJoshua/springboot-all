@@ -1,0 +1,11 @@
+server:
+  port: 8888
+book:
+  name: 三国演义
+  author: 罗贯中
+
+app:
+  version: 1.8.0_282
+
+journal:
+  name: ${book.name}

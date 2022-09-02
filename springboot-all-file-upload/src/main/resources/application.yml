@@ -1,0 +1,8 @@
+# 应用名称
+spring:
+  application:
+    name: springboot-all-file-upload
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 200MB

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>遍历集合相关知识点|Thymeleaf学习</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- th:href=@{路径：1. 以/开头，2. 根路径为static目录} -->
+    <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/main.css}" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav th:insert="frags/header_nav::navigatorBar"></nav>
+<nav class="navbar navbar-inverse navbar-fixed-top" th:replace="frags/header_nav::nav" role="navigation">
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 col-md-2 sidebar">
+
+            <ul class="nav nav-sidebar" th:replace="~{frags/side_nav::side_navi_menu}">
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>
+                        <input id="checkAll" type="checkbox"/>全选
+                    </th>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>地址</th>
+                    <th>首元素</th>
+                    <th>尾元素</th>
+                    <th>奇数项</th>
+                    <th>偶数项</th>
+                    <th>总数</th>
+                    <th>当前索引</th>
+                    <th>列表大小</th>
+                    <th>奇/偶?</th>
+                    <th>当前元素</th>
+                </tr>
+                </thead>
+                <tbody id="tbodyId">
+                <tr th:each="s,state:${students}" th:if="${s.getId()>'3'}" th:unless="${state.odd}">
+                    <td>
+                        <input class="cBox" id="" name="studentList" type="checkbox" th:value="${s.getId()}"/>
+                    </td>
+                    <td th:text="${s.getId()}"></td>
+                    <td th:text="${s.getUname()}"></td>
+                    <td th:text="${s.getAddr()}"></td>
+                    <td th:text="${state.first}"></td>
+                    <td th:text="${state.last}"></td>
+                    <td th:text="${state.odd}"></td>
+                    <td th:text="${state.even}"></td>
+                    <td th:text="${state.count}"></td>
+                    <td th:text="${state.index}"></td>
+                    <td th:text="${state.size}"></td>
+                    <td th:switch="${state.odd}">
+                        <span th:case="true">奇</span>
+                        <span th:case="*">偶</span>
+                    </td>
+                    <td th:text="${state.current}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div><!-- /.blog-main -->
+
+
+    </div>
+</div>
+
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script th:src="@{/bootstrap/js/jquery.min.js}"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/bootstrap/js/apiValidation.js}"></script>
+<script th:src="@{/bootstrap/js/backToTop.js}"></script>
+
+
+
+</body>
+</html>

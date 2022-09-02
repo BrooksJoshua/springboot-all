@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h1>美元符变量</h1>
+<hr/>
+欢迎: <span th:text="${name}"></span> 加入大本营. 您的工号和花名如下:
+<h1>表格</h1>
+<hr/>
+<table border="0">
+    <tr>
+        <td>工号</td>
+        <td th:text="${id}"></td>
+    </tr>
+    <tr>
+        <td>花名</td>
+        <td th:text="${nickname}"></td>
+    </tr>
+</table>
+<h1>th:with</h1>
+<hr/>
+<div th:with="age=5*4/3+2-1">
+    <div th:text="${age}"></div>
+</div>
+
+<h1>字面量</h1>
+<hr/>
+<div th:text="你好欢迎学习Thymeleaf"></div>
+<div th:text="true"></div>
+<div th:text="999"></div>
+<div th:text="'注意⚠️有空格或者符号,;等的的 字面量 要用 单引号 包起来'"></div>
+
+
+<h1>比较符号和转义符</h1>
+<hr/>
+
+<div th:with="height=175">
+    height 的值:
+    <div th:text="${height}"></div>
+    height == 170
+    <div th:text="${height} eq 170 "></div>
+    <br/>
+    height > 170
+    <div th:text="${height} gt 170 "></div>
+    <br/>
+    height < 170
+    <div th:text="${height} lt 170 "></div>
+    <br/>
+    height >= 170
+    <div th:text="${height} ge 170 "></div>
+    <br/>
+    height <= 170
+    <div th:text="${height} le 170 "></div>
+    <br/>
+    height != 170
+    <div th:text="${height} ne 170 "></div>
+    <br/>
+    常量比较
+    <div th:text="9 eq 8"></div>
+    关键字取反
+    <div th:text="not(9 eq 8)"></div>
+    符号取反
+    <div th:text="!(9 eq 8)"></div>
+    常量组合比较
+    <div th:text="9 eq 8 and (8 eq 8 or 7 gt 8)"></div>
+</div>
+<h1>三目运算符</h1>
+<hr/>
+<div th:with="score=100">
+    分数线:
+    <div th:text="(${score} gt 90)?'完美':'优秀'"></div>
+</div>
+
+<h1>内置对象</h1>
+<hr/>
+session:name:
+<div th:text="${#session.getAttribute('name')}"></div>
+所有session名:
+<div th:text="${#session.getAttributeNames()}"></div>
+<div th:text="${#execInfo.getNow()}"></div>
+
+array处理数组:
+<div th:text="${#arrays.length(userArray)}"></div>
+lists处理集合:
+<div th:text="${#lists.size(userList)}"></div>
+arrays处理集合, 交叉:
+<div th:text="${#arrays.length(userList)}"></div>
+<div th:text="${#servletContext.getServletContextName()}"></div>
+
+
+
+
+request.getAttributeNames() <div th:text="${#request.getAttributeNames()}"></div>
+response.getCharacterEncoding() <div th:text="${#response.getCharacterEncoding()}"></div>
+<!--<div th:text="${#}"></div>-->
+<!--<div th:text="${#}"></div>-->
+<img th:src="@{'1.png'}" height="372" width="573" th:alt-title="my-image"/>
+<script th:src="@{'js/backToTop.js'}"></script>
+</body>
+</html>

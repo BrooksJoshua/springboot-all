@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/springboot-all-AnnotationDemos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-AnnotationDemos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-admin-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-admin-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-cache/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-devtools/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-druid/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-dynamic-datasource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-dynamic-datasource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-file-upload/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-file-upload/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-global-exception/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-global-exception/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-https/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-https/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-json/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-json/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-logging/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-logging/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-mail/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-properties/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-properties/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-security/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-securitydb/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-static-resource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-static-resource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-thymeleaf/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-thymeleaf/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springbootrest/src/main/java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

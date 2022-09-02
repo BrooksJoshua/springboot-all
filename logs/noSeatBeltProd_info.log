@@ -1,0 +1,3 @@
+[ INFO ] [2022-08-22 13:49:03.084] com.boy.springbootalllogging.SpringbootAllLoggingApplication [55] [main]- Starting SpringbootAllLoggingApplication on 192.168.10.107 with PID 46779 (/Users/JoshuaBrooks/IdeaProjects/official/springboot-all/springboot-all-logging/target/classes started by leewilliam in /Users/JoshuaBrooks/IdeaProjects/official/springboot-all)
+[ INFO ] [2022-08-22 13:49:03.085] com.boy.springbootalllogging.SpringbootAllLoggingApplication [651] [main]- No active profile set, falling back to default profiles: default
+[ INFO ] [2022-08-22 13:49:03.285] com.boy.springbootalllogging.SpringbootAllLoggingApplication [61] [main]- Started SpringbootAllLoggingApplication in 0.41 seconds (JVM running for 0.626)

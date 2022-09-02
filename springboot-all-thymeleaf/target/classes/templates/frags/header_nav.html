@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" th:fragment="navigatorBar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Thymeleaf学习文档</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-left" action="">
+                <input type="text" class="form-control" name="key" placeholder="Search..." th:value="${key}"/>
+                <input type="hidden" class="form-control" name="bd_identify" placeholder="Search..." th:value="${bd_identify}"/>
+            </form>
+
+            <ul class="nav navbar-nav navbar-left">
+                <li><a th:href="@{/doc}">接口文档</a></li>
+                <li><a th:href="@{/doc(bd_identify=GROUP)}">集团</a></li>
+                <li><a th:href="@{/doc(bd_identify=SDA)}">厨热</a></li>
+                <li><a th:href="@{/doc(bd_identify=SDB)}">生活</a></li>
+                <li><a th:href="@{/doc(bd_identify=SDC)}">微清</a></li>
+                <li><a th:href="@{/admin/apiInfo}">开发</a></li>
+                <li><a th:href="@{/logout}" shiro:user="">登出</a></li>
+                <li><a th:href="@{/qa.html}" target="_blank">Q&A</a></li>
+                <li><a id="btnTop" class="btnTop" href="javascript:;" title="Back to top"><span class="glyphicon glyphicon-arrow-up imageTop">回到顶部</span></a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+</body>
+</html>

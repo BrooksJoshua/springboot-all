@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="../login" method="post">
+		<input name="account"> <input type="password" name="password">
+		<select name="bd_identify">
+		  <option></option>
+          <option>WXA</option>
+          <option>SDB</option>
+          <option>SDA</option>
+		</select>
+		<button>登录</button>
+	</form>
+	<br/>
+    <form action="../login/client" method="post">
+        <input name="client_id"> <input type="password" name="client_secret">
+        <button>client登录</button>
+    </form>
+</body>
+</html>

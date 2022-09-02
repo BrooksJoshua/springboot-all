@@ -1,0 +1,30 @@
+# 应用名称
+spring:
+  application:
+    name: springboot-all-web
+
+server: # 所有下面的配置都能在org.springframework.boot.autoconfigure.web.ServerProperties类找到
+  servlet:
+    context-path: /lee
+  tomcat:
+    basedir: springboot-all-web/my-tomcat-logs-base-dir # 默认的日志存储路径在项目的临时路径中, 不方便, 且每次启动都不一致, 所以自定义根路径,注意根路径的
+    accesslog:
+      enabled: true #开启访问日志
+      prefix: access_log # 访问日志的默认名称是"日期.log", 且日期格式固定, 如"2020.08.20.log"
+      suffix: .log # 默认是.log, 一般很少改
+      file-date-format: .yyyy-MM-dd # 默认值.yyyy-MM-dd
+      pattern: '%A %b %B %H %m %p %q "%r" %s %S %t %u %U %v %D% %T %I "%{Referer}i" "%{User-Agent}i"' #修改accesslog的日志输出格式pattern，可以直接写common或者combined， 也可以自己指定要输出的选项，如果是后者可能会报错： Do not use % for indentation, 用单引号将值引起来即可. (具体可选值有哪些可以参考tomcat文档http://www.docjar.org/docs/api/org/apache/catalina/valves/AccessLogValve.html)
+      rename-on-rotate: false
+      request-attributes-enabled: false
+      rotate: true
+  port: 8081
+  compression:
+    enabled: true #开启压缩 默认关闭的
+    mime-types:   #对下面这些数据类型进行压缩
+      - application/json
+      - text/html
+    min-response-size: 2KB #超过这个大小就进行压缩, 默认2KB
+
+
+
+

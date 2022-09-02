@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boy.springbootalldynamicdatasource.mapper.DataSourceMapper"> 
+  <sql id="dataSourceColumns">
+    a.id AS id,
+    a.dsrc_code AS dsrcCode,
+    a.dsrc_name AS dsrcName,
+    a.bean_name as beanName,
+    a.db_type as dbType,
+    a.ip as ip,
+    a.port as port,
+    a.url as url,
+    a.username as username,
+    a.password as password,
+    a.init_size as initSize,
+    a.min_idle as minIdle,
+    a.max_active as maxActive,
+    a.max_wait as maxWait,
+    a.time_between_eviction_run_millis as timeBetweenEvictionRunMillis,
+    a.min_evictable_idle_time_millis as minEvictableIdleTimeMillis,
+    a.validation_query as validationQuery,
+    a.query_timeout as queryTimeout,
+    a.create_by AS createBy,
+    a.create_date AS createDate,
+    a.update_by AS updateBy,
+    a.update_date AS updateDate,
+    a.remarks AS remarks,
+    a.del_flag AS delFlag
+  </sql>
+ 
+  <select id="get" resultType="com.boy.springbootalldynamicdatasource.bean.DataSource">
+    SELECT 
+      <include refid="dataSourceColumns"/>
+    FROM sys_data_source a
+    WHERE a.id = #{id}
+  </select>
+    
+    
+  <select id="findList" resultType="com.boy.springbootalldynamicdatasource.bean.DataSource">
+    SELECT 
+      <include refid="dataSourceColumns"/>
+    FROM sys_data_source a
+    <where>
+      a.del_flag = 0
+      <if test="dsrcCode != null and dsrcCode != ''"> and a.dsrc_code like concat('%',#{dsrcCode},'%')</if>
+      <if test="dsrcName != null and dsrcName != ''"> and a.dsrc_name like concat('%',#{dsrcName},'%')</if>
+      <if test="dbTypeStr != null and dbTypeStr != ''"> and a.db_type = #{dbTypeStr}</if>
+      <if test="ip != null and ip != ''"> and a.ip = #{ip}</if>
+      <if test="port != null and port != '' and port != '0'"> and a.port = #{port}</if>
+      <if test="username != null and username != ''"> and a.username = #{username}</if>
+      <if test="userId != null and userId != ''">
+        and (a.id in(select data_source_id from sys_role_data_source where role_id in(
+        select role_id from sys_role_user where user_id = #{userId})
+        ) or create_by = #{userId} or a.update_by = #{userId})
+      </if>
+    </where>
+    ORDER BY a.update_date DESC
+  </select>
+
+
+
+  <select id="findOne" resultType="com.boy.springbootalldynamicdatasource.bean.DataSource">
+    SELECT
+    <include refid="dataSourceColumns"/>
+    FROM sys_data_source a
+    <where>
+      a.del_flag = 0
+      <if test="dsrcCode != null and dsrcCode != ''"> and a.dsrc_code = #{dsrcCode}</if>
+      <if test="dsrcName != null and dsrcName != ''"> and a.dsrc_name = #{dsrcName}</if>
+    </where>
+    LIMIT 1
+  </select>
+
+
+  <select id="findListByDsrcCode" resultType="com.boy.springbootalldynamicdatasource.bean.DataSource">
+    SELECT
+    <include refid="dataSourceColumns"/>
+    FROM sys_data_source a
+    <where>
+      a.del_flag = 0
+      <if test="dsrcCode != null and dsrcCode != ''"> and a.dsrc_code = #{dsrcCode}</if>
+    </where>
+  </select>
+
+
+
+  <insert id="insert" >
+    insert into sys_data_source
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >id,</if>
+      <if test="dsrcCode != null" >dsrc_code,</if>
+      <if test="dsrcName != null" >dsrc_name,</if>
+      <if test="beanName != null" >bean_name,</if>
+      <if test="dbType != null" >db_type,</if>
+      <if test="ip != null" >ip,</if>
+      <if test="port != null" >port,</if>
+      <if test="url != null" >url,</if>
+      <if test="username != null" >username,</if>
+      <if test="password != null" >password,</if>
+      <if test="initSize != null" >init_size,</if>
+      <if test="minIdle != null" >min_idle,</if>
+      <if test="maxActive != null" >max_active,</if>
+      <if test="maxWait != null" >max_wait,</if>
+      <if test="timeBetweenEvictionRunMillis != null" >time_between_eviction_run_millis,</if>
+      <if test="minEvictableIdleTimeMillis != null" >min_evictable_idle_time_millis,</if>
+      <if test="validationQuery != null" >validation_query,</if>
+      <if test="queryTimeout != null" >query_timeout,</if>
+      <if test="createBy != null ">create_by,</if>
+      <if test="createDate != null" >create_date,</if>
+      <if test="updateBy != null ">update_by,</if>
+      <if test="updateDate != null" >update_date,</if>
+      <if test="remarks != null" >remarks,</if>
+      <if test="delFlag != null" >del_flag,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >#{id},</if>
+      <if test="dsrcCode != null" >#{dsrcCode},</if>
+      <if test="dsrcName != null" >#{dsrcName},</if>
+      <if test="beanName != null" >#{beanName},</if>
+      <if test="dbType != null" >#{dbType},</if>
+      <if test="ip != null" >#{ip},</if>
+      <if test="port != null" >#{port},</if>
+      <if test="url != null" >#{url},</if>
+      <if test="username != null" >#{username},</if>
+      <if test="password != null" >#{password},</if>
+      <if test="initSize != null" >#{initSize},</if>
+      <if test="minIdle != null" >#{minIdle},</if>
+      <if test="maxActive != null" >#{maxActive},</if>
+      <if test="maxWait != null" >#{maxWait},</if>
+      <if test="timeBetweenEvictionRunMillis != null" >#{timeBetweenEvictionRunMillis},</if>
+      <if test="minEvictableIdleTimeMillis != null" >#{minEvictableIdleTimeMillis},</if>
+      <if test="validationQuery != null" >#{validationQuery},</if>
+      <if test="queryTimeout != null" >#{queryTimeout},</if>
+      <if test="createBy != null">#{createBy},</if>
+      <if test="createDate != null" >#{createDate},</if>
+      <if test="updateBy != null ">#{updateBy},</if>
+      <if test="updateDate != null" >#{updateDate},</if>
+      <if test="remarks != null" >#{remarks},</if>
+      <if test="delFlag != null" >#{delFlag},</if>
+    </trim>
+  </insert>
+  <update id="update">
+    update sys_data_source
+    <set >
+      <if test="dsrcCode != null" >dsrc_code = #{dsrcCode},</if>
+      <if test="dsrcName != null" >dsrc_name = #{dsrcName},</if>
+      <if test="beanName != null" >bean_name = #{beanName},</if>
+      <if test="dbType != null" >db_type = #{dbType},</if>
+      <if test="ip != null" >ip = #{ip},</if>
+      <if test="port != null" >port = #{port},</if>
+      <if test="url != null" >url = #{url},</if>
+      <if test="username != null" >username = #{username},</if>
+      <if test="password != null" >password = #{password},</if>
+      <if test="initSize != null" >init_size = #{initSize},</if>
+      <if test="minIdle != null" >min_idle = #{minIdle},</if>
+      <if test="maxActive != null" >max_active = #{maxActive},</if>
+      <if test="maxWait != null" >max_wait = #{maxWait},</if>
+      <if test="timeBetweenEvictionRunMillis != null" >time_between_eviction_run_millis = #{timeBetweenEvictionRunMillis},</if>
+      <if test="minEvictableIdleTimeMillis != null" >min_evictable_idle_time_millis = #{minEvictableIdleTimeMillis},</if>
+      <if test="validationQuery != null" >validation_query = #{validationQuery},</if>
+      <if test="queryTimeout != null" >query_timeout = #{queryTimeout},</if>
+      <if test="updateBy != null">update_by = #{updateBy},</if>
+      <if test="updateDate != null" >update_date = #{updateDate},</if>
+      <if test="remarks != null" >remarks = #{remarks},</if>
+      <if test="delFlag != null" >del_flag = #{delFlag},</if>
+    </set>
+    where id = #{id}
+  </update>
+  
+  <update id="delete">
+    UPDATE sys_data_source SET del_flag = 1
+    WHERE id = #{id}
+  </update>
+
+  <select id="getIdByCode" resultType="java.lang.String">
+    select id from bdis.sys_data_source where dsrc_code=#{dataSource} and del_flag = '0'
+  </select>
+</mapper>

@@ -1,0 +1,12 @@
+# 应用名称
+spring:
+  application:
+    name: springboot-all-https
+#假设生成的命令command是 keytool -genkey -alias JoshuaHttps -keyalg RSA -keysize 2048 -keystore JoshuaBrooks_key.p12 -validity 365
+server:
+  ssl:
+    key-alias: JoshuaHttps #就是刚才生成过程中指定的别名
+    key-store: classpath:JoshuaBrooks_key.p12
+    key-store-password: 123456 #就是执行command后提示Enter keystore password: 输入的密码
+
+

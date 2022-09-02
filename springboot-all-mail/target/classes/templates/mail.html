@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mailing with Thymeleaf</title>
+</head>
+<body>
+
+
+
+<p>hello 欢迎加入  <h1 th:text="${username}"></h1>  [[${username}]] 大家庭，您的入职信息如下：</p>
+<table border="1">
+    <tr>
+        <td>姓名</td>
+        <td th:text="${username}"></td>
+    </tr>
+    <tr>
+        <td>工号</td>
+        <td th:text="${num}"></td>
+    </tr>
+    <tr>
+        <td>薪水</td>
+        <td th:text="${salary}"></td>
+    </tr>
+</table>
+<div style="color: #ff1a01">一起努力创造辉煌</div>
+
+
+
+
+
+</body>
+</html>

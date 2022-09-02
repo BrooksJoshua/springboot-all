@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<body>
+
+          <ul class="nav nav-sidebar" th:fragment="side_navi_menu">
+            <!-- <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li> -->
+            <li><a th:href="@{/admin/apiInfo}">接口管理</a></li>
+            <li><a th:href="@{/admin/apiInfo/add}"
+              shiro:hasPermission="admin:apiInfo:edit">新增接口</a></li>
+            <li><a th:href="@{/admin/apiResourceInfo}">资源管理</a></li>
+            <li><a th:href="@{/admin/apiResourceInfo/add}"
+              shiro:hasPermission="admin:apiResourceInfo:edit">新增资源</a></li>
+            <li><a th:href="@{/admin/apiReleaseLog/index}"
+              shiro:hasPermission="admin:apiReleaseLog:view">版本发布</a></li>
+            <li><a th:href="@{/admin/cacheInfo}"
+              shiro:hasPermission="admin:cacheInfo:view">缓存管理</a></li>
+            <li><a th:href="@{/admin/druid}"
+              shiro:hasPermission="admin:druid:view">监控</a></li>
+            <li><a th:href="@{/admin/dataSourceConfig}"
+              shiro:hasPermission="admin:dataSourceConfig:view">数据源管理</a></li>
+            <li><a th:href="@{/admin/archive}"
+                   shiro:hasPermission="admin:dataSourceConfig:view">文档管理</a></li>
+          </ul>
+</body>
+</html>

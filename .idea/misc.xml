@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-AnnotationDemos/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-web/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-https/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-properties/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-logging/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-thymeleaf/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-json/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-static-resource/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-file-upload/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-global-exception/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-admin-server/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-dynamic-datasource/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Excel转换为Markdown工具</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="bootstrap/css/blog.css" rel="stylesheet">
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+        <div class="main">
+        <form>
+          <div class="form-group">
+            <label for="source">Excel内容
+            </label>
+            <textarea class="form-control" rows="10" name="source" ></textarea>
+          </div>
+          <button type="button" class="btn btn-default" onclick="trans(this.form)">转换</button>
+          <label><input type="checkbox" checked="checked" name="isToLowerCase" />转为小写</label>
+          <div class="form-group">
+            <label for="target">转换结果
+            </label>
+            <textarea class="form-control" rows="10" name="target" ></textarea>
+          </div>
+        </form>
+
+        </div><!-- /.blog-main -->
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+<!--
+function trans(frm) {
+	var CNRF = "\n";
+    var sourceContent = frm.source.value;
+    var lines = sourceContent.split(CNRF);
+    if(lines.length == 0) return;
+    var content = "";
+    // 标题
+    content=trans_line(lines[0], false)+CNRF;
+    
+    // 表格行
+    content+="|";
+    for(var n=0,m=count_col(lines[0]);n<m;n++){
+    	content+="------ |";
+    }
+    content += CNRF;
+    
+    for(var i=1;i<lines.length;i++){
+    	content += trans_line(lines[i], frm.isToLowerCase.checked) + CNRF;
+    }
+    
+    frm.target.value=content;
+}
+// 一行的数据，
+function trans_line(line, isToLowerCase){
+    var arr = line.split("\t");
+    for(var i=0;i<arr.length;i++){
+    	line = line.replace("\t", '|');
+    }
+    
+    line =  "|" + line + "|";
+    
+    if(isToLowerCase) {
+    	line = line.toLowerCase();
+    }
+	
+	return line;
+}
+// 计算有多少列
+function count_col(line){
+	var arr = line.split("\t");
+	return arr.length;
+}
+//-->
+</script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>日期处理</title>
+</head>
+<body>
+<div>格式化日期
+    <div>
+        format(date)
+        <div th:text="${#dates.format(date)}"></div>
+        formatISO(date)
+        <div th:text="${#dates.formatISO(date)}"></div>
+        format(date,'yyyy-MM-dd HH:mm:ss')
+        <div th:text="${#dates.format(date,'yyyy-MM-dd HH:mm:ss')}"></div>
+        format(cal)
+        <div th:text="${#calendars.format(cal)}"></div>
+        formatISO(date)
+        <div th:text="${#calendars.formatISO(date)}"></div>
+        format(date,'yyyy-MM-dd HH:mm:ss')
+        <div th:text="${#calendars.format(date,'yyyy-MM-dd HH:mm:ss')}"></div>
+        arrayFormat(arr)
+        <div th:each="date : ${#dates.arrayFormat(arr)}">
+            <div th:text="${date}"></div>
+        </div>
+        listFormat(list,'yyyy-MM-dd')
+        <div th:each="date : ${#dates.listFormat(list,'yyyy-MM-dd')}">
+            <div th:text="${date}"></div>
+        </div>
+        setFormat(set)
+        <div th:each="date : ${#dates.setFormat(set)}">
+            <div th:text="${date}"></div>
+        </div>
+        <div>获取日期
+            <div>
+                day(date) 第几天
+                <div th:text="${#dates.day(date)}"></div>
+                month(date) 月份
+                <div th:text="${#dates.month(date)}"></div>
+                monthName(date) 月份名称
+                <div th:text="${#dates.monthName(date)}"></div>
+                monthNameShort(date) 月份名称简称
+                <div th:text="${#dates.monthNameShort(date)}"></div>
+                year(date) 年份
+                <div th:text="${#dates.year(date)}"></div>
+                dayOfWeek(date) 星期几索引
+                <div th:text="${#dates.dayOfWeek(date)}"></div>
+                dayOfWeekName(date) 星期几名称
+                <div th:text="${#dates.dayOfWeekName(date)}"></div>
+                dayOfWeekNameShort(date) 星期几名称简称
+                <div th:text="${#dates.dayOfWeekNameShort(date)}"></div>
+                hour(date) 时
+                <div th:text="${#dates.hour(date)}"></div>
+                minute(date) 分
+                <div th:text="${#dates.minute(date)}"></div>
+                second(date) 秒
+                <div th:text="${#dates.second(date)}"></div>
+                millisecond(date) 毫秒
+                <div th:text="${#dates.millisecond(date)}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

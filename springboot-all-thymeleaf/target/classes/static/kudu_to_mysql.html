@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Kudu_2_Mysql工具</title>
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap/css/blog.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<div class="container-fluid">
+  <div class="main">
+    <form>
+      <div class="form-group">
+        <label for="source">KUDU
+        </label>
+        <textarea class="form-control" rows="10" name="source"></textarea>
+      </div>
+      <button type="button" class="btn btn-default" onclick="trans(this.form)">转换</button>
+      <label><input type="checkbox"  name="isToLowerCase" />转为小写</label>
+      <div class="form-group">
+        <label for="target">MySql结果
+        </label>
+        <textarea class="form-control" rows="10" name="target"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="target">Hive结果
+        </label>
+        <textarea class="form-control" rows="10" name="target2"></textarea>
+      </div>
+    </form>
+  </div><!-- /.blog-main -->
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  function trans(frm) {
+    tras2Mysql(frm);
+    tras2Hive(frm);
+  }
+
+  function tras2Hive(frm){
+    var CNTR = "\n";
+    var separator = "COMMENT '最后更新时间'";
+    var index1 = " ,INDEX IDX_PERIOD_WID(PERIOD_WID)";
+    var index2 = " ,INDEX IDX_BATCH_NO(BATCH_NO)";
+    var COMMENTLine= "COMMENT '\t'"
+    var engine= "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+    var sourceContent = frm.source.value;
+    var lines = sourceContent.split(separator);
+    if (lines.length == 0) return;
+    content =  trans3(lines[0], frm.isToLowerCase.checked) + separator + CNTR +trans4(lines[1], frm.isToLowerCase.checked);
+    frm.target2.value = content;
+  }
+
+  function tras2Mysql(frm){
+    var CNTR = "\n";
+    var separator = "COMMENT '最后更新时间'";
+    var index1 = " ,INDEX IDX_PERIOD_WID(PERIOD_WID)";
+    var index2 = " ,INDEX IDX_BATCH_NO(BATCH_NO)";
+    var COMMENTLine= "COMMENT '\t'"
+    var engine= "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+    var sourceContent = frm.source.value;
+    var lines = sourceContent.split(separator);
+    if (lines.length == 0) return;
+    content =  trans1(lines[0], frm.isToLowerCase.checked) + separator + CNTR + index1 + CNTR + index2+trans2(lines[1], frm.isToLowerCase.checked);
+    frm.target.value = content;
+  }
+  // 一行的数据，
+  function trans1(line, isToLowerCase) {
+    line = line.replace(/STRING/g, 'VARCHAR(200)').replace(/DOUBLE/g, 'DECIMAL(30,8)');
+    if (isToLowerCase) {
+      line = line.toLowerCase();
+    }
+    return line;
+  }
+  function trans3(line, isToLowerCase) {
+    line = line.replace(/DOUBLE/g, 'DECIMAL(30,8)').replace(/NOT NULL/g, '\t');
+    if (isToLowerCase) {
+      line = line.toLowerCase();
+    }
+    return line;
+  }
+
+  function trans2(line, isToLowerCase) {
+    var CNTR = "\n";
+    var COMMENTLine= "COMMENT '\t'"
+    var engine= "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+    var lines = line.split(CNTR);
+    var resultLine="";
+    for(var i=1;i<lines.length-2;i++){
+      resultLine+=CNTR;
+      resultLine+=lines[i];
+    }
+    resultLine+=CNTR;
+    resultLine+=COMMENTLine;
+    resultLine+=CNTR;
+    resultLine+=engine
+    if (isToLowerCase) {
+      resultLine=resultLine.toLowerCase();
+    }
+    return resultLine;
+  }
+  function trans4(line, isToLowerCase) {
+    var CNTR = "\n";
+    var COMMENTLine= "COMMENT '\t'"
+    var rowFormat= "ROW FORMAT DELIMITED FIELDS TERMINATED BY '\\036';";
+    var lines = line.split(CNTR);
+    var resultLine="";
+    for(var i=2;i<lines.length-2;i++){
+      resultLine+=lines[i];
+    }
+    resultLine+=COMMENTLine;
+    resultLine+=CNTR;
+    resultLine+=rowFormat
+    if (isToLowerCase) {
+      resultLine=resultLine.toLowerCase();
+    }
+    return resultLine;
+  }
+</script>
+</body>
+
+</html>

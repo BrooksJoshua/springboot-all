@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springboot-all-web" />
+        <module name="springboot-all-admin-server" />
+        <module name="springboot-all-securitydb" />
+        <module name="springboot-all-druid" />
+        <module name="springboot-all-json" />
+        <module name="springboot-all-devtools" />
+        <module name="springboot-all-AnnotationDemos" />
+        <module name="springbootrest" />
+        <module name="springboot-all-logging" />
+        <module name="springboot-all-global-exception" />
+        <module name="springboot-all-https" />
+        <module name="springboot-all-static-resource" />
+        <module name="springboot-all-dynamic-datasource" />
+        <module name="springboot-all-thymeleaf" />
+        <module name="springboot-all-security" />
+        <module name="springboot-all-properties" />
+        <module name="springboot-all-file-upload" />
+        <module name="springboot-all-mail" />
+        <module name="springboot-all-cache" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot-all-cache" options="-parameters" />
+      <module name="springboot-all-devtools" options="-parameters" />
+      <module name="springboot-all-druid" options="-parameters" />
+      <module name="springboot-all-mail" options="-parameters" />
+      <module name="springboot-all-security" options="-parameters" />
+      <module name="springboot-all-securitydb" options="-parameters" />
+      <module name="springbootrest" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>演示模版插入|Thymeleaf学习</title>
+</head>
+<body>
+<div th:fragment="header">
+    <h1>Navigator, Header Part~</h1>
+</div>
+<div th:fragment="footer">
+    <h2>Navigator, Footer Part~</h2>
+</div>
+<div th:fragment="sider">
+    <h3>Navigator, Sider Part~</h3>
+</div>
+<div th:fragment="functionTemplate(one,two)">
+    <p th:text="hello+','+${one}+' & '+${two}"></p>
+</div>
+</body>
+</html>

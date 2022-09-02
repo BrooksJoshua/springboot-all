@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>内联|Thymeleaf学习</title>
+</head>
+<body>
+<div th:with="str='hello <strong>Joshua.H.Brooks</strong>'">
+    内联方式:<br/>
+    <span>[[${str}]]</span><br/>
+    <span>[(${str})]</span><br/>
+    属性方式:<br/>
+    <span th:text="${str}"></span><br/>
+    <span th:utext="${str}"></span><br/>
+</div>
+
+</body>
+</html>

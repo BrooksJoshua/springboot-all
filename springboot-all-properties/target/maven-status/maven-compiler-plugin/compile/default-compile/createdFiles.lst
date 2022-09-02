@@ -1,0 +1,7 @@
+META-INF/spring-configuration-metadata.json
+com/boy/springbootallproperties/entity/NoteBook.class
+com/boy/springbootallproperties/controller/BookController.class
+com/boy/springbootallproperties/SpringbootAllPropertiesApplication.class
+com/boy/springbootallproperties/config/ResponseFactory.class
+com/boy/springbootallproperties/entity/AppInfo.class
+com/boy/springbootallproperties/entity/Book.class
