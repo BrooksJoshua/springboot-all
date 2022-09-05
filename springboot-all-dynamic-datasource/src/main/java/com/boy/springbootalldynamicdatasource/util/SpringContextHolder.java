@@ -15,18 +15,14 @@ import org.springframework.stereotype.Service;
 
 /**
  * 以静态变量保存Spring ApplicationContext, 可在任何代码任何地方任何时候取出ApplicaitonContext.
- * 
- * @author：JiaLing Li
- * @date 2017-9-29
+ * @author：Joshua.H.Brooks
  */
 @Service
 @Lazy(false)
 public class SpringContextHolder implements ApplicationContextAware, DisposableBean {
 
 	private static ApplicationContext applicationContext = null;
-
 	private static Logger logger = LoggerFactory.getLogger(SpringContextHolder.class);
-
 	/**
 	 * 取得存储在静态变量中的ApplicationContext.
 	 */
@@ -34,7 +30,6 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 		assertContextInjected();
 		return applicationContext;
 	}
-
 	/**
 	 * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.
 	 */
@@ -51,7 +46,6 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 		assertContextInjected();
 		return applicationContext.getBean(requiredType);
 	}
-
 	/**
 	 * 清除SpringContextHolder中的ApplicationContext为Null.
 	 */
@@ -61,7 +55,6 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 		}
 		applicationContext = null;
 	}
-
 	/**
 	 * 实现ApplicationContextAware接口, 注入Context到静态变量中.
 	 */
@@ -84,7 +77,6 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 //		}
 		SpringContextHolder.applicationContext = applicationContext;
 	}
-
 	/**
 	 * 实现DisposableBean接口, 在Context关闭时清理静态变量.
 	 */
@@ -92,7 +84,6 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 	public void destroy() throws Exception {
 		SpringContextHolder.clearHolder();
 	}
-
 	/**
 	 * 检查ApplicationContext不为空.
 	 */

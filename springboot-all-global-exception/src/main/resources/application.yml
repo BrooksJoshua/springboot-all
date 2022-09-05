@@ -1,0 +1,7 @@
+# 应用名称
+# spring.application.name=springboot-all-global-exception
+spring:
+  application:
+    name: springboot-all-global-exception
+server:
+  port: 8181

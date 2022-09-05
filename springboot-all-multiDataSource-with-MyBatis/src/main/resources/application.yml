@@ -1,0 +1,23 @@
+## 应用名称
+spring:
+  application:
+    name: springboot-all-multiDataSource-with-MyBatis
+## 数据库驱动：
+  datasource:
+    one:
+      username: root
+      password: MyNewPassword
+      jdbcUrl: jdbc:mysql//localhost:3306?persistent_layer&useUnicode=true&serverTimeZone=Asia/Shanghai&characterEncoding=UTF-8&&zeroDateTimeBehavior=convertToNull
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    two:
+      username: root
+      password: MyNewPassword
+      jdbcUrl: jdbc:mysql//localhost:3306?persistent_layer_2&useUnicode=true&serverTimeZone=Asia/Shanghai&characterEncoding=UTF-8&&zeroDateTimeBehavior=convertToNull
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 8078
+
+mybatis: # MyBatis映射
+  mapper-locations: classpath:mapper/*Mapper.xml # 指定Mybatis的Mapper文件
+  type-aliases-package: com.boy.springbootallmultidatasourcewithmybatis.mybatis.entity # 指定Mybatis的实体目录

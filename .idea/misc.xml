@@ -17,6 +17,11 @@
         <option value="$PROJECT_DIR$/springboot-all-global-exception/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-all-admin-server/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-all-dynamic-datasource/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-system-boot-tasks/pom.xml" />
+        <option value="$PROJECT_DIR$/activiti_7.0/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-Persistence-Layer/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-all-redis/pom.xml" />
       </list>
     </option>
   </component>

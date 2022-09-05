@@ -1,6 +1,5 @@
 package com.boy.springbootalldynamicdatasource.bean;
 
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,7 +10,7 @@ import java.util.Set;
  * @date 2022-09-01 17:00
  */
 
-public class UserInfo implements UserDetails {
+public class UserInfo {
     private static final long serialVersionUID = -1041327031937199938L;
 
     /**
@@ -73,7 +72,7 @@ public class UserInfo implements UserDetails {
         this.name = name;
     }
 
-    @Override
+
     public String getUsername() {
         return username;
     }
@@ -82,7 +81,7 @@ public class UserInfo implements UserDetails {
         this.username = username;
     }
 
-    @Override
+
     public String getPassword() {
         return password;
     }
@@ -91,7 +90,7 @@ public class UserInfo implements UserDetails {
         this.password = password;
     }
 
-    @Override
+
     public boolean isAccountNonExpired() {
         return isAccountNonExpired;
     }
@@ -100,7 +99,7 @@ public class UserInfo implements UserDetails {
         isAccountNonExpired = accountNonExpired;
     }
 
-    @Override
+
     public boolean isAccountNonLocked() {
         return isAccountNonLocked;
     }
@@ -109,7 +108,7 @@ public class UserInfo implements UserDetails {
         isAccountNonLocked = accountNonLocked;
     }
 
-    @Override
+
     public boolean isCredentialsNonExpired() {
         return isCredentialsNonExpired;
     }
@@ -118,7 +117,7 @@ public class UserInfo implements UserDetails {
         isCredentialsNonExpired = credentialsNonExpired;
     }
 
-    @Override
+
     public boolean isEnabled() {
         return isEnabled;
     }
@@ -127,7 +126,7 @@ public class UserInfo implements UserDetails {
         isEnabled = enabled;
     }
 
-    @Override
+
     public Set<AuthorityInfo> getAuthorities() {
         return authorities;
     }

@@ -1,0 +1,7 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boy.springbootallmybatis.mapper.UserMapper">
+
+    <select id="getUserByIdWithXML" resultType="com.boy.springbootallmybatis.entity.User">
+        select  * from JDBCTemplate_user where id = #{id}
+    </select>
+</mapper>

@@ -12,6 +12,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ import java.util.List;
  * @date 2022-09-01 16:27
  */
 
+@Api(tags = "数据源DataSource接口测试")
 @Controller
 @RequestMapping(value = "dataSource")
 public class DataSourceController extends BasicController {
@@ -56,20 +58,11 @@ public class DataSourceController extends BasicController {
             dataSource.setDsrcCode(dsrcCode);
             dataSource.setDsrcName(dsrcName);
             dataSource.setDbType(DBType.getByCode(dbType));
-
-            RoleUser roleUser=new RoleUser();
-            roleUser.setUserId(userInfo.getId());
-            roleUser.setRoleId("1");
-            //List<RoleUser> roleUsers=roleUserService.findList(roleUser);
-//            if(Utils.isEmpityCollection(roleUsers)){
-//                dataSource.setUserId(userInfo.getId());
-//            }
-            PageHelper.startPage(pageNum!=null?pageNum:1, rowNum!=null?rowNum:25);
             List<DataSource> list = dataSourceService.findList(dataSource);
-            PageInfo<DataSource> page = new PageInfo<DataSource>(list);
-            return page ;//this.outBound(Base64Util.jdkBase64Encoder(this.getDataInfo(new User(),page.getList(),page.getTotal())));
+            //todo 分页处理
+            return list ;
         } catch (Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
             logger.error("------------->/dataSource/list 接口异常" + e.getMessage());
             ex=e.getMessage();
             return this.errorHandler("数据源列表加载失败");

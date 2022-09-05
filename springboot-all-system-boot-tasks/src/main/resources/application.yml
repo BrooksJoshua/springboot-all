@@ -1,0 +1,7 @@
+# 应用名称
+spring:
+  application:
+    name: springboot-all-system-boot-tasks
+server:
+  port: 8079
+

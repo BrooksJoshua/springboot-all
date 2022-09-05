@@ -1,0 +1,12 @@
+# 应用名称
+spring:
+  application:
+    name: springboot-all-mybatis
+  datasource:
+    name: defaultDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/persistent_layer?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: MyNewPassword
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml

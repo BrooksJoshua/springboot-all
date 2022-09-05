@@ -15,111 +15,57 @@ import java.util.List;
 @ApiModel(value = "用户信息")
 public class User extends BaseBean<User> {
 
-	@ApiModelProperty(value = "登录账号", example = "lijl")
-	private String userCode;
-	@ApiModelProperty(value = "用户名称", example = "李嘉陵")
-	private String userName;
+	@ApiModelProperty(value = "用户id", example = "aaa")
+	private String id;
+	@ApiModelProperty(value = "用户名", example = "张三")
+	private String username;
 	@ApiModelProperty(value = "用户密码", example = "123456")
 	private String passWord;
-	@ApiModelProperty(value = "用户邮箱", example = "lijl@126.com")
-	private String userEmail;
-	@ApiModelProperty(value = "有效开始时间", example = "2017-09-07")
-	private String effStartDate;
-	@ApiModelProperty(value = "有效结束时间", example = "9999-12-12")
-	private String effEndDate;
-	@ApiModelProperty(value = "电话号码", example = "18520836944")
-	private String userMobileNo;
-	@ApiModelProperty(value = "岗位", example = "项目经理")
-	private String positionName;
-	@ApiModelProperty(value = "钉钉登录账号", example = "lijl")
-	private String dingTalkUserCode;
-	@ApiModelProperty(value = "微信登录账号", example = "lijl")
-	private String weChatUserCode;
-	@ApiModelProperty(value = "登录账号", example = "lijl",hidden = true)
-	private String userAccount;
-	@ApiModelProperty(value = "加密权限", example = "false")
-	private Boolean encryption;
-	@ApiModelProperty(value = "解密权限", example = "false")
-	private Boolean decryption;
+	@ApiModelProperty(value = "真实姓名", example = "张三丰")
+	private String name;
 
-//	private TokenMes tokenMes;
-
-//	private List<Role> roles;
-
-	private Boolean pushErrorFlag;
-
-	private String departmentname;
-
-	public String getDepartmentname() {
-		return departmentname;
+	public User() {
 	}
 
-	public void setDepartmentname(String departmentname) {
-		this.departmentname = departmentname;
+	public User(String id, String username, String passWord, String name) {
+		this.id = id;
+		this.username = username;
+		this.passWord = passWord;
+		this.name = name;
 	}
 
-	public Boolean getPushErrorFlag() {
-		return pushErrorFlag;
+	@Override
+	public String toString() {
+		return "User{" +
+				"remarks='" + remarks + '\'' +
+				", createBy='" + createBy + '\'' +
+				", createDate=" + createDate +
+				", updateBy='" + updateBy + '\'' +
+				", updateDate=" + updateDate +
+				", delFlag='" + delFlag + '\'' +
+				", id='" + id + '\'' +
+				", username='" + username + '\'' +
+				", passWord='" + passWord + '\'' +
+				", name='" + name + '\'' +
+				'}';
 	}
 
-	public void setPushErrorFlag(Boolean pushErrorFlag) {
-		this.pushErrorFlag = pushErrorFlag;
+	@Override
+	public String getId() {
+		return id;
 	}
 
-//	public List<Role> getRoles() {
-//		return roles;
-//	}
-
-//	public void setRoles(List<Role> roles) {
-//		this.roles = roles;
-//	}
-
-//	public TokenMes getTokenMes() {
-//		return tokenMes;
-//	}
-//
-//	public void setTokenMes(TokenMes tokenMes) {
-//		this.tokenMes = tokenMes;
-//	}
-
-	public String getUserAccount() {
-		return userAccount;
+	@Override
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public void setUserAccount(String userAccount) {
-		this.userAccount = userAccount;
+	public String getUsername() {
+		return username;
 	}
 
-	public String getDingTalkUserCode() {
-		return dingTalkUserCode;
-	}
-
-	public void setDingTalkUserCode(String dingTalkUserCode) {
-		this.dingTalkUserCode = dingTalkUserCode;
-	}
-
-	public String getWeChatUserCode() {
-		return weChatUserCode;
-	}
-
-	public void setWeChatUserCode(String weChatUserCode) {
-		this.weChatUserCode = weChatUserCode;
-	}
-
-	public String getUserCode() {
-		return userCode;
-	}
-
-	public void setUserCode(String userCode) {
-		this.userCode = userCode;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassWord() {
@@ -130,59 +76,11 @@ public class User extends BaseBean<User> {
 		this.passWord = passWord;
 	}
 
-	public String getUserEmail() {
-		return userEmail;
+	public String getName() {
+		return name;
 	}
 
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
-
-	public String getEffStartDate() {
-		return effStartDate;
-	}
-
-	public void setEffStartDate(String effStartDate) {
-		this.effStartDate = effStartDate;
-	}
-
-	public String getEffEndDate() {
-		return effEndDate;
-	}
-
-	public void setEffEndDate(String effEndDate) {
-		this.effEndDate = effEndDate;
-	}
-
-	public String getUserMobileNo() {
-		return userMobileNo;
-	}
-
-	public void setUserMobileNo(String userMobileNo) {
-		this.userMobileNo = userMobileNo;
-	}
-
-	public String getPositionName() {
-		return positionName;
-	}
-
-	public void setPositionName(String positionName) {
-		this.positionName = positionName;
-	}
-
-	public Boolean getEncryption() {
-		return encryption;
-	}
-
-	public void setEncryption(Boolean encryption) {
-		this.encryption = encryption;
-	}
-
-	public Boolean getDecryption() {
-		return decryption;
-	}
-
-	public void setDecryption(Boolean decryption) {
-		this.decryption = decryption;
+	public void setName(String name) {
+		this.name = name;
 	}
 }

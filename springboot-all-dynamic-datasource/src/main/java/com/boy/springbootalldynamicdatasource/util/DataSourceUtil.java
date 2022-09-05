@@ -20,20 +20,35 @@ public class DataSourceUtil {
 
     private static DefaultListableBeanFactory beanFactory;
 
-    public static String generateDataSourceBeanName(String id){
-        return "dataSource_" + id;
+    /**
+     * 生成最终的数据源beanName, 规则:  在前面拼接"dataSource_"
+     * @param beanName
+     * @return
+     */
+    public static String generateDataSourceBeanName(String beanName){
+        return "dataSource_" + beanName;
+    }
+    /**
+     * 生成最终的数据源beanName, 规则:  在前面拼接"jdbcTemplate_"
+     * @param beanName
+     * @return
+     */
+    public static String generateJdbcTemplateBeanName(String beanName){
+        return "jdbcTemplate_" + beanName;
     }
 
-    public static String generateJdbcTemplateBeanName(String id){
-        return "jdbcTemplate_" + id;
-    }
-
-    public static void addDataSource(String id, Map<String, Object> parameterMap, Integer queryTimeout) {
-        if (parameterMap == null || parameterMap.isEmpty() || StringUtils.isBlank(id)) {
+    /**
+     * 添加做了如下动作： a. 参数准备， b. 将datasource添加到ApplicationContext里 c. 校验b是否添加成功 d. 将jdbcTemplateBeanName添加到ApplicationContext里
+     * @param beanName 数据源的beanName
+     * @param parameterMap： 封装的druid参数map
+     * @param queryTimeout: 过期时间
+     */
+    public static void addDataSource(String beanName, Map<String, Object> parameterMap, Integer queryTimeout) {
+        if (parameterMap == null || parameterMap.isEmpty() || StringUtils.isBlank(beanName)) {
             throw new IllegalArgumentException();
         }
-        String dataSourceBeanName = generateDataSourceBeanName(id);
-        String jdbcTemplateBeanName = generateJdbcTemplateBeanName(id);
+        String dataSourceBeanName = generateDataSourceBeanName(beanName); //拼接了"datasource_" 前缀
+        String jdbcTemplateBeanName = generateJdbcTemplateBeanName(beanName); //拼接了"jdbcTemplate_" 前缀
 
         addBean(DruidDataSource.class, dataSourceBeanName, parameterMap.entrySet(), "init", "close");
 
@@ -54,6 +69,14 @@ public class DataSourceUtil {
         addBean(JdbcTemplate.class, jdbcTemplateBeanName, properties.entrySet(), null, null);
     }
 
+    /**
+     *
+     * @param type bean类型
+     * @param beanName bean名称
+     * @param properties bean的属性
+     * @param initMethodName 初始化方法
+     * @param destroyMethodName 销毁方法
+     */
     private static void addBean(Class<?> type, String beanName, Set<Map.Entry<String, Object>> properties, String initMethodName, String destroyMethodName) {
         DefaultListableBeanFactory beanFactory = getBeanFactory();
         if(beanFactory.containsBean(beanName)){

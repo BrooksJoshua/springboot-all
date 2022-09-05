@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/activiti_7.0/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/activiti_7.0/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-AnnotationDemos/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-AnnotationDemos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-Persistence-Layer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-Persistence-Layer/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-admin-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-admin-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-cache/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-cors9090/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-cors9091/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-devtools/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-druid/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-dynamic-datasource/src/main/java" charset="UTF-8" />
@@ -21,12 +27,20 @@
     <file url="file://$PROJECT_DIR$/springboot-all-logging/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-logging/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-mail/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-multiDataSource-with-MyBatis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-multiDataSource-with-MyBatis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-mybatis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-mybatis/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-properties/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-properties/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-redis/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-security/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-securitydb/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-static-resource/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-static-resource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-system-boot-tasks/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-all-system-boot-tasks/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-thymeleaf/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-thymeleaf/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-all-web/src/main/java" charset="UTF-8" />

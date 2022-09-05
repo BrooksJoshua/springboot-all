@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boy.springbootalldynamicdatasource.mapper.UserMapper">
+  <sql id="userColumns">
+    a.id AS id,
+    a.username as username,
+    a.password as password
+    a.create_by AS createBy,
+    a.create_date AS createDate,
+    a.update_by AS updateBy,
+    a.update_date AS updateDate,
+    a.remarks AS remarks,
+    a.del_flag AS delFlag
+  </sql>
+
+    
+  <select id="findList" resultType="com.boy.springbootalldynamicdatasource.bean.User">
+    SELECT 
+      <include refid="userColumns"/>
+    FROM t_user a
+    ORDER BY a.update_date DESC
+  </select>
+
+</mapper>

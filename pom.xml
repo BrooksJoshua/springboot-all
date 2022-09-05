@@ -9,13 +9,28 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <modules>
-        <module>springboot-all-mail</module>
-        <module>springboot-all-druid</module>
-        <module>springbootrest</module>
-        <module>springboot-all-devtools</module>
+        <module>springboot-all-admin-server</module>
+        <module>springboot-all-AnnotationDemos</module>
         <module>springboot-all-cache</module>
+        <module>springboot-all-cors9090</module>
+        <module>springboot-all-cors9091</module>
+        <module>springboot-all-devtools</module>
+        <module>springboot-all-druid</module>
+        <module>springboot-all-dynamic-datasource</module>
+        <module>springboot-all-file-upload</module>
+        <module>springboot-all-global-exception</module>
+        <module>springboot-all-https</module>
+        <module>springboot-all-json</module>
+        <module>springboot-all-logging</module>
+        <module>springboot-all-mail</module>
+        <module>springboot-all-multiDataSource-with-MyBatis</module>
+        <module>springboot-all-properties</module>
         <module>springboot-all-security</module>
         <module>springboot-all-securitydb</module>
+        <module>springboot-all-static-resource</module>
+        <module>springboot-all-thymeleaf</module>
+        <module>springboot-all-web</module>
+        <module>springbootrest</module>
     </modules>
 
     <groupId>com.boy</groupId>

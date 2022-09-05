@@ -71,9 +71,8 @@ public class DataSourceServiceImpl extends BaseServiceImpl<DataSourceMapper, Dat
 
 
 	public Map<String,Object> generateDruidDataSourceParameter(DataSource dataSource){
-		if (dataSource == null || dataSource.getId() == null || dataSource.getDbType() == null
-				|| StringUtils.isBlank(dataSource.getUrl()) || StringUtils.isBlank(dataSource.getUsername())
-				|| StringUtils.isBlank(dataSource.getPassword())) {
+		if (dataSource == null || dataSource.getId() == null || dataSource.getDbType() == null || StringUtils.isBlank(dataSource.getUrl())
+				|| StringUtils.isBlank(dataSource.getUsername()) || StringUtils.isBlank(dataSource.getPassword())) {
 			return null;
 		}
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -92,14 +91,10 @@ public class DataSourceServiceImpl extends BaseServiceImpl<DataSourceMapper, Dat
 		map.put("removeAbandoned",true);//是否自动回收超时连接
 		map.put("removeAbandonedTimeout",1800);//超时时间(以秒数为单位)
 		map.put("transactionQueryTimeout",6000);//事务超时时间
-
-
 		if("presto"!=dataSource.getDbType().getCode()) {
 			map.put("password", dataSource.getPassword());//解密
 		}
-		if (dataSource.getInitSize() != null && dataSource.getInitSize() > 0) {
-			map.put("initialSize", dataSource.getInitSize());
-		}
+		if (dataSource.getInitSize() != null && dataSource.getInitSize() > 0) {map.put("initialSize", dataSource.getInitSize());}
 		if (dataSource.getMinIdle() != null && dataSource.getMinIdle() > 0) {
 			map.put("minIdle", dataSource.getMinIdle());
 		}
@@ -146,7 +141,15 @@ public class DataSourceServiceImpl extends BaseServiceImpl<DataSourceMapper, Dat
 	}
 
 
-
+	/**
+	 *  添加数据源
+	 *  1. 首先校验：a. 空值 b. 重复性 c. 连通性
+	 *  2. 生成druid连接池参数map
+	 *  3. 往容器中添加当前datasource
+	 *  4. 往JdbcTemplateManager中添加: JdbcTemplateManager.put(dataSource.getId(), dataSource.getBeanName()); 下一次验证重复性的时候会用到。
+	 * @param dataSource 后台查到的datsSourceList里遍历的其中一个
+	 * @throws Exception
+	 */
 	public synchronized void addDataSource(DataSource dataSource) throws Exception {
 		if (dataSource == null){
 			return;
@@ -179,7 +182,7 @@ public class DataSourceServiceImpl extends BaseServiceImpl<DataSourceMapper, Dat
 	@Override
 	public void sync() {
 		DataSource db = new DataSource();
-		List<DataSource> properties = dataSourceService.findList(db);;
+		List<DataSource> properties = dataSourceService.findList(db);
 		if (CollectionUtils.isEmpty(properties)) {
 			return;
 		}
